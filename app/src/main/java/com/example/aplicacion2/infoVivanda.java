@@ -24,6 +24,15 @@ public class infoVivanda extends AppCompatActivity {
         btnVisitarVivanda = findViewById(R.id.btnVisitarVivanda);
         imfFotoVivanda = findViewById(R.id.imgFotoVivanda);
 
+        btnVisitarVivanda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent irViva = new Intent(infoVivanda.this, productosVivanda.class);
+                startActivity(irViva);
+            }
+        });
+
 
         btnCamaraVivanda.setOnClickListener(new View.OnClickListener() {
             @Override

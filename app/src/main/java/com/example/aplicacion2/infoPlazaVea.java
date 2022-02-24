@@ -25,6 +25,17 @@ public class infoPlazaVea extends AppCompatActivity {
         imgFotoPlazaVea = findViewById(R.id.imgFotoPlazaVea);
 
 
+
+        btnVisitarPvea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent irProdVea =  new Intent(infoPlazaVea.this, productosPlazaVea.class);
+                startActivity(irProdVea);
+            }
+        });
+
+
         btnCamaraPlazavea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

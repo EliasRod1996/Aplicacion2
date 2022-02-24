@@ -25,6 +25,16 @@ public class infoSodimac extends AppCompatActivity {
         imgFotoSodimac = findViewById(R.id.imgFotoSodimac);
 
 
+        btnVisitarSodimac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent irSodi = new Intent(infoSodimac.this, productosSodimac.class);
+                startActivity(irSodi);
+            }
+        });
+
+
         btnCamaraSodimac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

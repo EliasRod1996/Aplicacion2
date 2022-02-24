@@ -54,8 +54,8 @@ public class productosMetro extends AppCompatActivity {
                 else {
 
 
-                        Boolean insertar = helper.insertarDatos(txproducto, txPcosto, txPxMayor, txStock);
-                        if (insertar == true) {
+                        Boolean inserta = helper.insertaDatosMetro(txproducto, txPcosto, txPxMayor, txStock);
+                        if (inserta == true) {
                             Toast.makeText(productosMetro.this, "Datos insertados correctamente", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(productosMetro.this, "Fallo al registrar producto", Toast.LENGTH_LONG).show();
