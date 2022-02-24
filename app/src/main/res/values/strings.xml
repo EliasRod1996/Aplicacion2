@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Aplicacion2</string>
+
+    <string name="metro_btn">Metro</string>
+    <string name="home_center_btn">Home Center</string>
+    <string name="wong_btn">Wong</string>
+    <string name="sodimac_btn">Sodimac</string>
+    <string name="vivanda_btn">Vivanda</string>
+
+
+    <string name="desc_metro">Metro SJL </string>
+    <string name="title_activity_metro">Metro</string>
+    <string name="title_activity_plazavea">plazavea</string>
+    <string name="title_activity_sodimac">sodimac</string>
+    <string name="title_activity_wong">wong</string>
+</resources>
