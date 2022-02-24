@@ -114,4 +114,73 @@ public class DBHelperProductos extends SQLiteOpenHelper {
     }
 
 
+
+
+    //ELIMINAR
+    public boolean eliminarProdMetro(String producto){
+
+        boolean ok ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.execSQL("DELETE FROM productosMetro WHERE producto ='" + producto +"' ");
+            ok = true;
+        }catch (Exception e){
+            e.toString();
+            ok =false;
+        }finally {
+            db.close();
+        }
+        return ok;
+    }
+    public boolean eliminarProdPvea(String producto){
+
+        boolean ok ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.execSQL("DELETE FROM productosPlazaVea WHERE producto ='" + producto +"' ");
+            ok = true;
+        }catch (Exception e){
+            e.toString();
+            ok =false;
+        }finally {
+            db.close();
+        }
+        return ok;
+    }
+    public boolean eliminarProdSodimac(String producto){
+
+        boolean ok ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.execSQL("DELETE FROM productosSodimac WHERE producto ='" + producto +"' ");
+            ok = true;
+        }catch (Exception e){
+            e.toString();
+            ok =false;
+        }finally {
+            db.close();
+        }
+        return ok;
+    }
+    public boolean eliminarProdVivanda(String producto){
+
+        boolean ok ;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.execSQL("DELETE FROM productosVivanda WHERE producto ='" + producto +"' ");
+            ok = true;
+        }catch (Exception e){
+            e.toString();
+            ok =false;
+        }finally {
+            db.close();
+        }
+        return ok;
+    }
+
+
 }

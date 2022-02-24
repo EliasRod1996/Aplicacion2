@@ -1,8 +1,10 @@
 package com.example.aplicacion2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,6 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
@@ -19,6 +22,7 @@ public class productosMetro extends AppCompatActivity {
     Button btnBuscar,btnInsertar, btnActualizar, btnBorrar;
     EditText txtProducto, txtPCosto, txtPxMayor,txtStock;
     TableLayout tlProdMetro;
+    ImageView ivGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,7 @@ public class productosMetro extends AppCompatActivity {
         btnBorrar = findViewById(R.id.btnBorrar);
 
         tlProdMetro = findViewById(R.id.tlProdMetro);
+        ivGuardar = findViewById(R.id.ivGuardar);
 
         DBHelperProductos helper = new DBHelperProductos(this);
 
@@ -82,10 +87,47 @@ public class productosMetro extends AppCompatActivity {
                         }
                     });
 
+
                     btnBorrar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            String tproducto = txtProducto.getText().toString();
+                            //helper.eliminarProdMetro(tproducto);
+                            //Toast.makeText(productosMetro.this, "Se eliminó el producto", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder alerta = new AlertDialog.Builder(productosMetro.this);
+                            alerta.setMessage("¿ Desea eliminar producto ?")
+                                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
 
+                                            if(tproducto.equals("")){
+                                                Toast.makeText(productosMetro.this, "Debe llenar el campo  producto", Toast.LENGTH_SHORT).show();
+
+                                            }else{
+                                                helper.eliminarProdMetro(tproducto);
+                                                Toast.makeText(productosMetro.this, "Se eliminó el producto", Toast.LENGTH_SHORT).show();
+
+                                            }
+
+                                        }
+                                    })
+                                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        }
+                                    }).show();
+
+
+                        }
+                    });
+
+                    ivGuardar.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            Intent irPdv = new Intent(productosMetro.this, PDeVentas.class);
+                            startActivity(irPdv);
 
                         }
                     });
@@ -94,6 +136,8 @@ public class productosMetro extends AppCompatActivity {
 
 
     }
+
+
 }
 
 

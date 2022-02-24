@@ -127,13 +127,12 @@
     <TableLayout
         android:id="@+id/tlProdMetro"
         android:layout_width="383dp"
-        android:layout_height="400dp"
+        android:layout_height="356dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.913">
+        app:layout_constraintVertical_bias="0.797">
 
         <TableRow
             android:layout_width="match_parent"
@@ -151,6 +150,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </TableLayout>
+
+    <ImageView
+        android:id="@+id/ivGuardar"
+        android:layout_width="49dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

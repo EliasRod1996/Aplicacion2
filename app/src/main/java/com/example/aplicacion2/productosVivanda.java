@@ -1,18 +1,23 @@
 package com.example.aplicacion2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class productosVivanda extends AppCompatActivity {
 
     Button btnBuscar,btnInsertar, btnActualizar, btnBorrar;
     EditText txtProducto, txtPCosto, txtPxMayor,txtStock;
+    ImageView ivGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class productosVivanda extends AppCompatActivity {
         btnBuscar = findViewById(R.id.btnBuscar);
         btnActualizar = findViewById(R.id.btnActualizar);
         btnBorrar = findViewById(R.id.btnBorrar);
+
+        ivGuardar = findViewById(R.id.ivGuardar);
 
         DBHelperProductos helper = new DBHelperProductos(this);
 
@@ -51,6 +58,49 @@ public class productosVivanda extends AppCompatActivity {
                     } else {
                         Toast.makeText(productosVivanda.this, "Fallo al registrar producto", Toast.LENGTH_LONG).show();
                     }}
+            }
+        });
+
+        btnBorrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String tproducto = txtProducto.getText().toString();
+                //helper.eliminarProdMetro(tproducto);
+                //Toast.makeText(productosMetro.this, "Se eliminó el producto", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alerta = new AlertDialog.Builder(productosVivanda.this);
+                alerta.setMessage("¿ Desea eliminar producto ?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                if(tproducto.equals("")){
+                                    Toast.makeText(productosVivanda.this, "Debe llenar el campo  producto", Toast.LENGTH_SHORT).show();
+
+                                }else{
+                                    helper.eliminarProdVivanda(tproducto);
+                                    Toast.makeText(productosVivanda.this, "Se eliminó el producto", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        }).show();
+
+
+            }
+        });
+        ivGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent irPdv = new Intent(productosVivanda.this, PDeVentas.class);
+                startActivity(irPdv);
+
             }
         });
     }

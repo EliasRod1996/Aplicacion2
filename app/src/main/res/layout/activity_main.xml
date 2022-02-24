@@ -81,7 +81,7 @@
         android:id="@+id/btniniciar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ya tiene una cuenta ?"
+        android:text="¿ Ya tiene una cuenta ?"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
