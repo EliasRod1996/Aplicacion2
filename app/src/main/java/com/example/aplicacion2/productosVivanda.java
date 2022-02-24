@@ -45,7 +45,7 @@ public class productosVivanda extends AppCompatActivity {
                 else {
 
 
-                    Boolean inserta = helper.insertaDatosMetro(txproducto, txPcosto, txPxMayor, txStock);
+                    Boolean inserta = helper.insertaDatosVivanda(txproducto, txPcosto, txPxMayor, txStock);
                     if (inserta == true) {
                         Toast.makeText(productosVivanda.this, "Datos insertados correctamente", Toast.LENGTH_LONG).show();
                     } else {

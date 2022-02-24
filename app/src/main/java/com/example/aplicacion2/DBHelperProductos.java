@@ -70,7 +70,7 @@ public class DBHelperProductos extends SQLiteOpenHelper {
         values.put("PxMayor", PxMayor);
         values.put("Stock", Stock);
 
-        long result = db.insert("productosMetro", null, values);
+        long result = db.insert("productosPlazaVea", null, values);
         if(result == -1)
             return false;
         else
